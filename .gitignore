@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 
 #database
-aplication.properties
+application.properties
