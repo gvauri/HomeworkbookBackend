@@ -31,9 +31,9 @@ public class HomeworksService {
     public void deleteHomework(Long id){
         homeworksRepo.deleteHomeworkByHomeworkID(id);
     }
-    public Homework findHomeworkByDueDate(Date date){
-        return homeworksRepo.findHomeworkBydueDate(date)
-                        .orElseThrow(() -> new HomeworkNotFoundException("Homework by id"+ date + "was not found."));
+    public Homework findHomeworksByUserID(long userID){
+        return homeworksRepo.findHomeworkByUserID(userID)
+                        .orElseThrow(() -> new HomeworkNotFoundException("Homework by id"+ userID + "was not found."));
     }
     public Homework findHomeworkByHomeworkID(Long id){
         return homeworksRepo.findHomeworkByHomeworkID(id)

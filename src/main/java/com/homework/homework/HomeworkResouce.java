@@ -24,13 +24,18 @@ public class HomeworkResouce {
         List<Homework> homeworks = homeworksService.findAllHomeworks();
         return  new ResponseEntity<>(homeworks, HttpStatus.OK);
     }
-
+    @GetMapping("/find/{userID}")
+    public ResponseEntity<List<Homework>> getHomeworksByUserID(@PathVariable("userID")Long id){
+        List<Homework> homeworks = (List<Homework>) homeworksService.findHomeworksByUserID(id);
+        return  new ResponseEntity<>(homeworks, HttpStatus.OK);
+    }
 
     @GetMapping("/find/{homeworkID}")
     public ResponseEntity<Homework> getHomeworksByHomeworkID(@PathVariable("homeworkID")Long id){
         Homework homework = homeworksService.findHomeworkByHomeworkID(id);
         return  new ResponseEntity<>(homework, HttpStatus.OK);
     }
+
     @PostMapping("/add")
     public ResponseEntity<Homework> addHomework(@RequestBody Homework homework){
         Homework newHomework = homeworksService.addHomework(homework);
