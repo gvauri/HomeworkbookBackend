@@ -3,7 +3,6 @@ package com.homework.homework.modle;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @Entity
 public class Person implements Serializable {
@@ -17,8 +16,10 @@ public class Person implements Serializable {
     private  String email;
     @Column(unique = true)
     private  String username;
+    private  String password;
 
-    public Person(String email, String name, String firstName, String username){
+    public Person(String email, String name, String firstName, String username, String password){
+        this.setPassword(password);
         this.setEmail(email);
         this.setName(name);
         this.setFirstName(firstName);
@@ -59,7 +60,7 @@ public class Person implements Serializable {
     }
 
     public void setEmail(String email) {
-        email = email;
+        this.email = email;
     }
 
     public String getUsername() {
@@ -75,8 +76,17 @@ public class Person implements Serializable {
                 "id=" +getUserID().toString()+
                 ", Email='"+ getEmail().toString() + "'"+
                 ", Name='"+ getName() + "'"+
+                ", Password='"+ getPassword() + "'"+
                 ", FirstName='"+ getFirstName().toString() + "'"+
                 ", userName='"+ getUsername().toString() + "'"+
                 "}";
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

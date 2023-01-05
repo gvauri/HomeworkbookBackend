@@ -31,8 +31,8 @@ public class HomeworksService {
     public void deleteHomework(Long id){
         homeworksRepo.deleteHomeworkByHomeworkID(id);
     }
-    public Homework findHomeworksByUserID(long userID){
-        return homeworksRepo.findHomeworkByUserID(userID)
+    public List<Homework> findHomeworksByUserID(long userID){
+        return homeworksRepo.findAllByUserID(userID)
                         .orElseThrow(() -> new HomeworkNotFoundException("Homework by id"+ userID + "was not found."));
     }
     public Homework findHomeworkByHomeworkID(Long id){

@@ -25,16 +25,25 @@ public class PersonsService {
     }
     public Person findPersonByUserID(long userID){
         return personsRepo.findPersonByUserID(userID)
-                .orElseThrow(() -> new HomeworkNotFoundException("Homework by id"+ userID + "was not found."));
+                .orElseThrow(() -> new HomeworkNotFoundException("Person by id"+ userID + "was not found."));
 
     }
     public Person findPersonByUsername(String username){
         return personsRepo.findPersonByUsername(username)
-                .orElseThrow(() -> new HomeworkNotFoundException("Homework by id"+ username + "was not found."));
+                .orElseThrow(() -> new HomeworkNotFoundException("Person by id"+ username + "was not found."));
+    }
 
+    public Person findPersonByUsernameAndPassword(String username, String password){
+        return personsRepo.findByPasswordAndUsername(password, username)
+                .orElseThrow(() -> new HomeworkNotFoundException("Person by username and password"+password + username + "was not found."));
+    }
+
+    public Person findPersonByPassword(String password){
+        return personsRepo.findPersonByPassword(password)
+                .orElseThrow(() -> new HomeworkNotFoundException("Person by id"+ password + "was not found."));
     }
     public Person findPersonByEmail(String email){
         return personsRepo.findPersonByEmail(email)
-                .orElseThrow(() -> new HomeworkNotFoundException("Homework by id"+ email + "was not found."));
+                .orElseThrow(() -> new HomeworkNotFoundException("Person by id"+ email + "was not found."));
     }
 }

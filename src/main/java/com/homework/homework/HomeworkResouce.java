@@ -24,9 +24,9 @@ public class HomeworkResouce {
         List<Homework> homeworks = homeworksService.findAllHomeworks();
         return  new ResponseEntity<>(homeworks, HttpStatus.OK);
     }
-    @GetMapping("/find/{userID}")
+    @GetMapping("/findUser/{userID}")
     public ResponseEntity<List<Homework>> getHomeworksByUserID(@PathVariable("userID")Long id){
-        List<Homework> homeworks = (List<Homework>) homeworksService.findHomeworksByUserID(id);
+        List<Homework> homeworks = homeworksService.findHomeworksByUserID(id);
         return  new ResponseEntity<>(homeworks, HttpStatus.OK);
     }
 

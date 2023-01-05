@@ -23,7 +23,7 @@ public class Homework implements Serializable {
     public Homework(){}
     public Homework(Long userID, Date dueDate, boolean isDone, Long statusID, String description, String fach){
         this.setFach(fach);
-        this.setUserID(userID);
+
         this.setStatusID(statusID);
         long miliseconds = System.currentTimeMillis();
         Date date = new Date(miliseconds);
@@ -31,6 +31,7 @@ public class Homework implements Serializable {
         this.setDueDate(dueDate);
         this.setDone(isDone);
         this.setDescription(description);
+        this.setUserID(userID);
     }
 
     public Long getHomeworkID() {
