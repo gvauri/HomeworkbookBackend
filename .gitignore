@@ -365,3 +365,4 @@ FodyWeavers.xsd
 #database
 src/main/resources/application.properties
 *.password*
+EmailService.java
